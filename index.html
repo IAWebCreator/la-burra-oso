@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La burra oso ($LBS) - The Bear Donkey</title>
+    <meta name="description" content="La burra oso ($LBS): The crypto donkey most similar to a bear. Embracing resilience and stubborn strength.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ---
+        *   STYLE FOUNDATION & MATERIAL DESIGN PRINCIPLES
+        *   - CSS Variables for a consistent theme (Color, Typography, Spacing).
+        *   - Mobile-first design approach.
+        *   - Brutalist aesthetic with sharp edges, high contrast, and blocky elements.
+        *   - Material-inspired shadows for depth and interactivity feedback.
+        *   - Focus on readability and clear hierarchy.
+        --- */
+
+        :root {
+            --color-primary: #FF5722; /* Vibrant Orange from logo */
+            --color-secondary: #111111; /* Near Black from logo */
+            --color-background: #F5F5F5; /* Light Gray for contrast */
+            --color-text: #111111;
+            --color-white: #FFFFFF;
+
+            --font-heading: 'Archivo Black', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 4rem;
+
+            --border-radius: 0px; /* Brutalist sharp edges */
+            --border-width: 3px;
+            --box-shadow: 8px 8px 0px var(--color-secondary);
+            --box-shadow-hover: 12px 12px 0px var(--color-primary);
+        }
+
+        /* --- Base & Reset --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            line-height: 1.2;
+            text-transform: uppercase;
+            color: var(--color-secondary);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 10vw, 5rem);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 8vw, 3.5rem);
+            margin-bottom: var(--spacing-md);
+        }
+
+        h3 {
+            font-size: clamp(1.25rem, 5vw, 1.75rem);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        p {
+            margin-bottom: var(--spacing-sm);
+            max-width: 65ch;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* --- Layout & Sections --- */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) 0;
+        }
+
+        section {
+            border-bottom: var(--border-width) solid var(--color-secondary);
+        }
+        
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-intro {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .section-intro h1, .section-intro p {
+            color: var(--color-white);
+            text-shadow: 2px 2px 0 var(--color-secondary);
+        }
+
+        /* --- Components --- */
+        .card {
+            background-color: var(--color-white);
+            border: var(--border-width) solid var(--color-secondary);
+            box-shadow: var(--box-shadow);
+            padding: var(--spacing-md);
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+
+        .card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .btn {
+            display: inline-block;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            text-align: center;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border: var(--border-width) solid var(--color-secondary);
+            background-color: var(--color-white);
+            color: var(--color-secondary);
+            box-shadow: 4px 4px 0px var(--color-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease-out;
+        }
+
+        .btn:hover, .btn:focus {
+            background-color: var(--color-secondary);
+            color: var(--color-white);
+            transform: translate(4px, 4px);
+            box-shadow: none;
+        }
+
+        .btn-primary {
+            background-color: var(--color-secondary);
+            color: var(--color-white);
+        }
+        
+        .btn-primary:hover, .btn-primary:focus {
+            background-color: var(--color-white);
+            color: var(--color-secondary);
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto var(--spacing-md);
+            background-color: var(--color-primary);
+            border: var(--border-width) solid var(--color-secondary);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contract-address {
+            background-color: var(--color-secondary);
+            color: var(--color-white);
+            padding: var(--spacing-sm) var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            border: var(--border-width) solid var(--color-secondary);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--spacing-sm);
+        }
+
+        .contract-address code {
+            font-family: monospace;
+            font-size: 0.9rem;
+            word-break: break-all;
+            flex-grow: 1;
+        }
+
+        .copy-btn {
+            background: var(--color-primary);
+            color: var(--color-white);
+            border: none;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: background-color 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #e64a19;
+        }
+
+        /* --- Section Specific Styles --- */
+        .grid {
+            display: grid;
+            gap: var(--spacing-lg);
+        }
+
+        @media (min-width: 768px) {
+            .grid-2-cols {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .grid-3-cols {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Tokenomics */
+        .tokenomic-item {
+            text-align: center;
+        }
+        .tokenomic-item .value {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            line-height: 1;
+        }
+        .tokenomic-item .label {
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* How to Buy & Roadmap */
+        .step-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+            padding-left: 50px;
+        }
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: -5px;
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--color-primary);
+            line-height: 1;
+        }
+
+        /* Roadmap Phases */
+        .roadmap-phase h3 {
+            color: var(--color-primary);
+        }
+        .roadmap-phase ul {
+            list-style-type: '✓ ';
+            padding-left: var(--spacing-md);
+        }
+        .roadmap-phase li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-secondary);
+            color: var(--color-background);
+            text-align: center;
+            padding: var(--spacing-lg) var(--spacing-sm);
+        }
+        footer .logo-footer {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--spacing-sm);
+        }
+        footer p {
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        /* --- Animations --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <!-- SECTION: INTRO -->
+        <section class="section-intro">
+            <div class="container">
+                <div class="logo">
+                    <img src="https://yoahusjzxyasdporfmmt.supabase.co/storage/v1/object/public/token-logos/463ce8ae-b00c-4b39-8cbc-abd75a568b8f.png?" alt="La burra oso Logo">
+                </div>
+                <h1>LA BURRA OSO</h1>
+                <p>Stubborn. Resilient. Bearish by nature.</p>
+                <div class="contract-address">
+                    <code id="contractAddress">CHiNsA2B6ZbmKnEmHPCbbX9aXJyoJzAtcLpHEDd6Qyq3</code>
+                    <button id="copyButton" class="copy-btn">Copy</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: ABOUT -->
+        <section id="about">
+            <div class="container">
+                <div class="grid grid-2-cols">
+                    <div class="fade-in">
+                        <h2>Unyielding Presence.</h2>
+                        <p>In a market of fleeting trends, we choose endurance. La Burra Oso ($LBS) represents the stubborn resolve of the donkey and the raw power of the bear.</p>
+                        <p>It's a symbol for those who stand firm when markets tremble. We value strength over speed, and resilience over rash decisions. This is a community built on a foundation of steady, unshakeable conviction.</p>
+                    </div>
+                    <div class="card fade-in">
+                        <h3>The Bear Donkey Philosophy</h3>
+                        <p><strong>The Bear:</strong> Acknowledges market realities. Power, instinct, and a healthy respect for cycles.</p>
+                        <p><strong>The Donkey:</strong> Embodies stubbornness and resilience. An unwavering spirit that carries on, regardless of the terrain.</p>
+                        <p>$LBS is the fusion of these two forces.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: TOKENOMICS -->
+        <section id="tokenomics" style="background-color: var(--color-primary);">
+            <div class="container">
+                <h2 style="color: var(--color-white); text-align: center; text-shadow: 2px 2px 0 var(--color-secondary);">Tokenomics</h2>
+                <div class="grid grid-3-cols">
+                    <div class="card fade-in tokenomic-item">
+                        <div class="value">1B</div>
+                        <div class="label">Total Supply</div>
+                    </div>
+                    <div class="card fade-in tokenomic-item">
+                        <div class="value">0%</div>
+                        <div class="label">Buy/Sell Tax</div>
+                    </div>
+                    <div class="card fade-in tokenomic-item">
+                        <div class="value">100%</div>
+                        <div class="label">Community Driven</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: HOW TO BUY -->
+        <section id="how-to-buy">
+            <div class="container">
+                <h2 class="fade-in">Acquire $LBS</h2>
+                <div class="card fade-in">
+                    <ol class="step-list">
+                        <li>
+                            <h3>Get a Wallet</h3>
+                            <p>Download Phantom or your wallet of choice from the app store or google play store for free. Desktop users, download the google chrome extension by going to phantom.app.</p>
+                        </li>
+                        <li>
+                            <h3>Get Some SOL</h3>
+                            <p>Have SOL in your wallet to swap for $LBS. If you don’t have any SOL, you can buy directly on Phantom, transfer from another wallet, or buy on another exchange and send it to your wallet.</p>
+                        </li>
+                        <li>
+                            <h3>Go to Raydium or Jupiter</h3>
+                            <p>Connect to Raydium or Jupiter. Go to jup.ag or raydium.io in google chrome or on the browser inside your Phantom app. Connect your wallet. Paste the $LBS token address into Raydium or Jupiter and confirm the swap.</p>
+                        </li>
+                        <li>
+                            <h3>Swap SOL for $LBS</h3>
+                            <p>Swap SOL for $LBS. We have ZERO taxes so you don’t need to worry about buying with a specific slippage, although you may need to use slippage during times of market volatility.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: ROADMAP -->
+        <section id="roadmap">
+            <div class="container">
+                <h2 class="fade-in">The Trail Ahead</h2>
+                <div class="grid grid-3-cols">
+                    <div class="card fade-in roadmap-phase">
+                        <h3>Phase 1: The First Steps</h3>
+                        <ul>
+                            <li>Token Launch</li>
+                            <li>Website & Community Channels</li>
+                            <li>CoinGecko/CoinMarketCap Listings</li>
+                            <li>Build the Core Herd</li>
+                        </ul>
+                    </div>
+                    <div class="card fade-in roadmap-phase">
+                        <h3>Phase 2: The Steady Trek</h3>
+                        <ul>
+                            <li>Community Growth Initiatives</li>
+                            <li>Expand Social Presence</li>
+                            <li>First Utility Explorations</li>
+                            <li>Partnerships with Aligned Projects</li>
+                        </ul>
+                    </div>
+                    <div class="card fade-in roadmap-phase">
+                        <h3>Phase 3: The Unyielding Path</h3>
+                        <ul>
+                            <li>Establish $LBS as a Symbol of Resilience</li>
+                            <li>Develop Unique Community Tools</li>
+                            <li>Major Exchange Listings</li>
+                            <li>Long-Term Ecosystem Building</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: COMMUNITY -->
+        <section id="community" style="background-color: var(--color-secondary);">
+            <div class="container" style="text-align: center;">
+                <h2 class="fade-in" style="color: var(--color-white);">Join The Unyielding.</h2>
+                <p class="fade-in" style="color: var(--color-background); margin-left: auto; margin-right: auto;">La Burra Oso is more than a token. It's a statement. A community for those who value strength and persistence. Our social channels are currently being established. Stay tuned.</p>
+                <!-- Social links are omitted as per instructions because no URLs were provided. -->
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="logo-footer">
+            <img src="https://yoahusjzxyasdporfmmt.supabase.co/storage/v1/object/public/token-logos/463ce8ae-b00c-4b39-8cbc-abd75a568b8f.png?" alt="La burra oso Small Logo">
+        </div>
+        <h3>La burra oso ($LBS)</h3>
+        <p>&copy; 2024 La burra oso. All rights reserved.</p>
+        <p style="font-size: 0.8rem; opacity: 0.6; margin-top: var(--spacing-sm);">Cryptocurrency is a high-risk investment. Please do your own research.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Copy to Clipboard Functionality ---
+            const copyButton = document.getElementById('copyButton');
+            const contractAddress = document.getElementById('contractAddress').innerText;
+
+            if (copyButton) {
+                copyButton.addEventListener('click', () => {
+                    navigator.clipboard.writeText(contractAddress).then(() => {
+                        copyButton.textContent = 'Copied!';
+                        setTimeout(() => {
+                            copyButton.textContent = 'Copy';
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy text: ', err);
+                    });
+                });
+            }
+
+            // --- Scroll Animation with Intersection Observer ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+
+        });
+    </script>
+
+</body>
+</html>
